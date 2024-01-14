@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,ol,li{
+    list-style-type: none;
+}
+body{
+    background: #d0c7c7;
+}
+
+#time{
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    opacity: 0;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    color: rgb(45, 45, 45);
+}
+#time p::selection{
+    background: none;
+    user-select: none;
+}
+#time img::selection{
+    background: none;
+    user-select: none;
+}
+#time img{
+    width: 60px;
+    animation: 2s rotatingClock infinite;
+}
+@keyframes rotatingClock{
+    0%{
+        transform: rotate(0deg); 
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+#time p{
+    font-size: 80px;
+    font-weight: 900;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: default;
+    margin-left: 25px;
+}
+
+
+#playing_space{
+    background: #efefef;
+    margin-top: 30px;
+    width: 35%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-55%);
+    padding: 20px;
+    border-radius: 20px;
+}
+#cards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    row-gap: 20px;
+    column-gap: 10px;
+}
+.card{
+    background: url(CardsImages/Reversed_Card.png);
+    background-size: cover;
+    border-radius: 6px;
+    transition: 0.25s linear;
+    border: 1px solid #818181;
+    transform: rotate3d(0, 1, 0, 180deg);
+}
+.cardImg::selection{
+    background: none;
+}
+.cardImg{
+    width: 100%;
+    display: block;
+    visibility: hidden;
+    border-radius: 6px;
+    opacity: 0;
+    transition: 0.4s;
+}
+.activeImg{
+    visibility: visible;
+    opacity: 1;
+}
+
+.popUp{
+    background: rgb(45, 45, 45);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+    border-radius: 20px;
+}
+.popUp::selection{
+    background: none;
+}
+.popUp_content{
+    display: grid;
+}
+h2{
+    text-align: center;
+    color: #fff;
+    font-size: 130px;
+    font-family: 'Monoton', cursive;
+    margin-bottom: 50px;
+    font-weight: 100;
+    user-select: none;
+}
+#newGameButton{
+    width: 85%;
+    margin: 0 auto;
+    padding: 30px 0;
+    border: 10px double  #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'Monoton', cursive;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+#newGameButton:hover{
+    background: #fff;
+    color: black;
+}
+.activePopUp{
+    visibility: visible;
+    opacity: 1;
+}
